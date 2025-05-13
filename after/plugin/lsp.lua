@@ -12,9 +12,10 @@ lspconfig_defaults.capabilities = vim.tbl_deep_extend(
   require('cmp_nvim_lsp').default_capabilities()
 )
 
-require('lspconfig').clangd.setup({
-  cmd = { "clangd", "--target=x86_64-w64-mingw32", "--compile-commands-dir=/mnt/c/dev/chip8" }
-})
+require('lspconfig').clangd.setup{
+    cmd = { "clangd", "--compile-commands-dir=." },
+}
+
 require("lspconfig").asm_lsp.setup({
   cmd = { "asm-lsp", "--dialect", "nasm" },  -- 👈 force dialect via CLI
   filetypes = { "asm" },
